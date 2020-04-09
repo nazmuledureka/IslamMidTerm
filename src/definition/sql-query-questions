@@ -2,19 +2,44 @@ This file contains SQL questions.
 Please read the questions and answer.
 
 What is Database?
-A.
+--> Database is a software that is used for doing DBMS/RDBMS activities.
 
 What is DBMS?
-What is the difference between SQL and MySQL?
-What is RDBMS? How is it different from DBMS?
-What are Tables and Fields?
-What is SQL?
-What are Constraints in SQL?
-What is a Primary Key?
-What is a Foreign Key?
-What is Normalization?
-What is Denormalization?
+-->DBMS is Database management system where we can store the data in form of table and manages the database objects and data as well.
+it has no relationship between the object.
 
+What is the difference between SQL and MySQL?
+-->
+What is RDBMS? How is it different from DBMS?
+--> RDBMS is a Relational Database management system. example: Oracle, SQL-Server etc.. and it stablished relationship
+between the database objects like table and DBMS has no relationship between database objects. Example : MS-Access, D-base etc..
+
+What are Tables and Fields?
+--> Table is a collection of Data, organized in terms of rows and column. Field is a column in a table that is designed
+to maintain specific information every record in the table.
+
+What is SQL?
+--> Structure Query language. used to communicate to the database to perform different kinds of operation.
+
+What are Constraints in SQL?
+--> Constraints are primary key, foreign key, check , Not null, unique .
+What is a Primary Key?
+--> Primary key column will not allow duplicate values and also null values and combination of Unique + Not Null.
+Example: create table emp(empno number(3) constraint emp_empno_pk primary key.
+            ename varchar2(20),
+            sal number(3),
+            deptno number(5));
+
+What is a Foreign Key?
+--> Foreign key constraint  a combination of column as a foreign key and establishes a relationship with a primary key
+in the same table or a different table.
+
+What is Normalization?
+--> Normalization is a technique of organize the data in the database and process of reducing the redundancy of Data and
+improves the Data Integrity. it is used to eliminate duplicate data. There are 4th normal form like 1NF, 2NF,3NF, BCNF(Boyce Codd Normal form).
+
+What is Denormalization?
+Denormalization is the reverse process of Normalization. it improve the reporting time like fast reporting.
 You have 2 tables given below.
 
 Order Table:
@@ -34,13 +59,84 @@ CustomerID	   CustomerName	    CustomerPhone	     Country
 Please do the following on above Order table and Customer table:
 
 Inner Join:
-Left Join:
-Right Join:
-Full Join:
+--> Only matched records in both the tables.
+
+mysql> select orderid,orderdate,c.customername,c.customerphone,c.country from orderr o inner join customer c on(c.customerid=o.customerid);
++---------+------------+--------------+----------------+-----------+
+| orderid | orderdate  | customername | customerphone  | country   |
++---------+------------+--------------+----------------+-----------+
+|   20508 | 2014-09-10 | John Dave    | 1-718-203-9087 | Australia |
+|   30407 | 2016-09-19 | Brian Gary   | 1-646-789-3489 | USA       |
++---------+------------+--------------+----------------+-----------+
+2 rows in set (0.00 sec)
+
+Left Join: Matched records + Unmatched record from left table
+mysql> select orderid,orderdate,c.customername,c.customerphone,c.country from orderr o left outer join customer c on(c.customerid=o.customerid);
++---------+------------+--------------+----------------+-----------+
+| orderid | orderdate  | customername | customerphone  | country   |
++---------+------------+--------------+----------------+-----------+
+|   20508 | 2014-09-10 | John Dave    | 1-718-203-9087 | Australia |
+|   30407 | 2016-09-19 | Brian Gary   | 1-646-789-3489 | USA       |
+|   40250 | 2020-03-20 | NULL         | NULL           | NULL      |
++---------+------------+--------------+----------------+-----------+
+3 rows in set (0.01 sec)
+
+Right Join: Matched records + Unmatched record from Right table
+mysql> select orderid,orderdate,c.customername,c.customerphone,c.country from orderr o right outer join customer c on(c.customerid=o.customerid);
++---------+------------+--------------+----------------+-----------+
+| orderid | orderdate  | customername | customerphone  | country   |
++---------+------------+--------------+----------------+-----------+
+|   20508 | 2014-09-10 | John Dave    | 1-718-203-9087 | Australia |
+|   30407 | 2016-09-19 | Brian Gary   | 1-646-789-3489 | USA       |
+|    NULL | NULL       | Chris Brown  | 1-212-342-7843 | Canada    |
++---------+------------+--------------+----------------+-----------+
+3 rows in set (0.00 sec)
+
+Full Join: Matched records + unmatched records from both the tables.
+
+--> select orderid,orderdate,c.customername,c.customerphone,c.country from orderr o full outer join customer c on(c.customerid=o.customerid);
+
 
 On Customer Table, please Insert one row.
+--> insert into customer values(111,'john Brown','1-612-342-7843','usa');
+mysql> select * from customer;
++------------+--------------+----------------+-----------+
+| CustomerID | CustomerName | CustomerPhone  | Country   |
++------------+--------------+----------------+-----------+
+|          1 | John Dave    | 1-718-203-9087 | Australia |
+|          2 | Brian Gary   | 1-646-789-3489 | USA       |
+|          3 | Chris Brown  | 1-212-342-7843 | Canada    |
+|        111 | john Brown   | 1-612-342-7843 | usa       |
++------------+--------------+----------------+-----------+
+4 rows in set (0.00 sec)
+
+
 
 On Order Table, please Update one row.
+--> --> -->
+mysql> select * from orderr;
++---------+------------+------------+
+| OrderID | CustomerID | OrderDate  |
++---------+------------+------------+
+|   20508 |          1 | 2014-09-10 |
+|   30407 |          2 | 2016-09-19 |
+|   40250 |         10 | 2020-03-20 |
++---------+------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> update orderr set orderdate ='2020-03-23' where orderid=20508;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from orderr;
++---------+------------+------------+
+| OrderID | CustomerID | OrderDate  |
++---------+------------+------------+
+|   20508 |          1 | 2020-03-23 |
+|   30407 |          2 | 2016-09-19 |
+|   40250 |         10 | 2020-03-20 |
++---------+------------+------------+
+3 rows in set (0.00 sec)
 
 
 
