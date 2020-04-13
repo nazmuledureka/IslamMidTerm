@@ -1,34 +1,102 @@
 Please answer the below Data Structure Questions:
 
 why do we need data structure?
-A.
+A.-->It a way of organize data to store and retrieving effective way in your memory
+     If we need to add, retrieve , delete or some other task need another data structure
 
 
 What are the various operations that can be performed on different Data Structures?
+--> we can use ArrayList so we do not need to set the initialize . It can grow dynamically
+and we can use LinkedList so that we can add data easily into a linkedList also we can delete data easily.
+
+
 List out the areas in which data structures are applied extensively?
+-->
+    ArrayList
+    LinkedLIst
+    Stack
+   Queue
+   Map
+   hashMap
+   hashTable
+   Graph
+   Tree
+
+
 what is an Array?
+--> Array is a container and it  used to store multiple values in a single variable
+
+
 what is the difference between the Array and ArrayList?
+-->  Array is fixed size but ArrayList is not fixed . array need to initialize but ArrayList grow dynamically and
+do not need to initialize.
+
 what is LinkedList?
+--> LinkedList is a another data structure and using LinkedList we can add data easily and delete data easily.
+
 How is an Array different from Linked List?
+-->
+
 what is queue?
+-->  queue is first  in first out
+
+
 what is stack?
+-->  Stack is  last in  first out data structure
+
 what is FIFO and LIFO?
+-->  FIFO - First if first out and LIFO- Last in first out.
+
 what is the order of complexity?
+-->
+
 what is the best case to search an element from an array?
+-->
+
 what is the worst case to search an element from an array?
+-->
+
 what is tree in data structure?
+-->
+
 what is graph in data structure?
+-->
+
 what is the difference between the HashTable and HashMap?
+-->
+
 What are the major data structures used in the following areas : RDBMS, Network data model and Hierarchical data model.
+-->
+
 How HashMap works in java?
+-->  HashMap key value pair. Map is interface of collection framework and implemented by hash map.
+
+
 What is ArrayIndexOutOfBoundsException in java? When it occurs?
+-->
+
 What are the different ways of copying an array into another array?
+-->
+
 What is difference between an array and a linked list?
+-->  Array is a container and it  used to store multiple values in a single variable. Array is fixed size and need to initialize
+  LinkedList is a another data structure and using LinkedList we can add data easily and delete data easily.
+
+
 What is DFS and BFS?
+-->
+
 What is Recursion?
+-->
+
 What are linear and non linear data Structures?
+-->  LinkedList is the linear data structure .
+
 What is Big-(O)-notation?
+-->
+
 Outlined different kind of sorting algorithm with time complexity?
+-->
 
 Draw a table with time complexity in which it will summarize all the data structure feature's advantages and disadvantages.
   a)In terms of Accessing element.
